@@ -7,7 +7,7 @@ PROGRAMA = gerador
 LEXICO = lexico.l
 SINTATICO = sintatico.y
 
-$(PROGRAMA): $(LEXICO) $(SINTATICO) ast.h ast.c
+$(PROGRAMA): $(LEXICO) $(SINTATICO)
 	$(BISON) -d $(SINTATICO)
 	$(FLEX) $(LEXICO)
 	$(CC) -c *.c -I.  $(FLAGS)

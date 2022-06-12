@@ -1,8 +1,9 @@
 %option noyywrap
 %{
 
-    #include <ast.h>
+    // #include <ast.h>
     #include <sintatico.tab.h>
+    extern YYSTYPE yylval;
     char *string_func;
     extern int yylex();
 %}
