@@ -153,6 +153,7 @@ void imprimiComandos(ProgramaMips *program,Comandos *auxC,int labelNum){
             case SCANF:
                 imprimeScanf(program->text,reg);
                 //printf("%s\n",auxC->cmd_scanf->str);
+                reg++;
                 break;
             case IF:
             //verificar se os if estao indo certinho
