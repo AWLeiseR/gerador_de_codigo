@@ -320,7 +320,7 @@ void imprimiComandos(ProgramaMips *program,Comandos *auxC,int labelNum){
                 reg = imprimeExpressao(program,auxC->expr_comandos);
                 imprimiIF(program->text,reg.tipo,reg.num,labelNum);
                 //label
-                inseriLabel(program->text,"IF",labelNum);
+                inseriLabel(program->text,"THEN",labelNum);
                 //comandos if
                 imprimiComandos(program,auxC->cmd_if,labelNum+1);
                 //label j pra sair do if
