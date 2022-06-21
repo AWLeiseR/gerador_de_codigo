@@ -10,6 +10,7 @@
     typedef struct comandos Comandos;
     typedef struct no No;
     typedef struct function_struct Function_struct;
+    typedef struct regAlloc RegAlloc;
     
     
     Cmd_expressao *novoCmdExpressao(Expressao *exp, Cmd_expressao *prox);

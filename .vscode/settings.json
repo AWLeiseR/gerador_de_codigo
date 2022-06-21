@@ -1,0 +1,6 @@
+{
+  "files.associations": {
+    "*.tsx": "typescriptreact",
+    "stdlib.h": "c"
+  }
+}
