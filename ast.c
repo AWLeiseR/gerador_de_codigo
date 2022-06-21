@@ -7,6 +7,7 @@
 #include "funcoes.h"
 
 int labelComandos = 0;
+int countVar = 0;
 
 struct parametros {
     int tipo;
@@ -30,6 +31,10 @@ struct expressao{
     Expressao *filho_direito;
 };
 
+struct registrador{
+    int tipo;
+    char *id;
+};
 struct cmd_expressao{
     Expressao *exp;
     Cmd_expressao *prox;
@@ -56,6 +61,19 @@ struct function_struct{
     Comandos *function_comandos;
     Function_struct * prox;
 };
+
+Registrador regs[8];
+
+int acharVar(char *id){
+    int i = 0;
+    for(i;i<8;i++){
+        if(strcmp(id,regs[i].id) == 0){
+            return i;
+        }
+
+    }
+    return -1;
+}
 
 int imprimeExpressao(ProgramaMips *p,Expressao *exp, int reg){
     Expressao *aux = exp;
@@ -283,6 +301,13 @@ Parametros *novoParametro(Expressao *id, int tipo, Parametros *prox) {
 
 Variaveis *novaVariavel(Expressao *id, int tipo, Variaveis *prox) {
     Variaveis *novo = (Variaveis *) malloc(sizeof(Variaveis));
+    Registrador novoReg;
+    if(id->tipo == IDENTIFIER){
+       novoReg.id = id->str;
+       novoReg.tipo = tipo;
+       regs[countVar] = novoReg; 
+       countVar++;
+    }
     novo->id = id;
     novo->tipo = tipo;
     novo->prox = prox;

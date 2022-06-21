@@ -1,5 +1,6 @@
 #ifndef _AST_H_
 #define _AST_H_
+    typedef struct registrador Registrador;
     typedef struct No Tree;
     typedef void * expression;
     typedef struct parametros Parametros;
