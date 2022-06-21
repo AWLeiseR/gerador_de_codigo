@@ -226,7 +226,7 @@ void imprimiIF(Item_struct *lista, char reg1, int num1,int labelnum){
   char *linha1, *linha2, *linha3;
   linha1 = malloc(sizeof(char)*35);
   // inserir label aqui
-  sprintf(linha1,"\tbeqz $%c%d, IF%d\n",reg1,num1,labelnum);
+  sprintf(linha1,"\tbeqz $%c%d, ELSE%d\n",reg1,num1,labelnum);
   //sgt maior q
   i->comandoImpressao = linha1;
   inseriLista(lista,i);

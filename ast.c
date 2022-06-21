@@ -194,7 +194,7 @@ void liberaRegT(int i){
                     c.num = auxReg.num;                    
                     c.tipo = auxReg.tipo;
                 }
-                imprimirLess(p->text,auxReg.tipo,auxReg.num,auxReg2.tipo,auxReg2.num,c.tipo,c.num);
+                imprimirLess(p->text,auxReg2.tipo,auxReg2.num,auxReg.tipo,auxReg.num,c.tipo,c.num);
                 break;
             // case MULTIPLY:
             //     auxReg = imprimeExpressao(p,aux->filho_direito,reg+1);
