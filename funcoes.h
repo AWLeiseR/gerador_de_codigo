@@ -20,7 +20,7 @@
     void imprimirNotEqual(Item_struct *lista,int reg1, int reg2, int reg3);
     void imprimirGreater(Item_struct *lista,int reg1, int reg2, int reg3);
     void imprimirLess(Item_struct *lista,int reg1, int reg2, int reg3);
-    void inseriAd(int destino,int registrador2,int registrador3);
+    void inseriAd(Item_struct *lista,int destino,int registrador2,int registrador3);
     void imprimiOR(Item_struct *lista,int reg1, int reg2, int reg3);
     void inseriSub(int destino, int registrador2, int registrador3);
     void imprimirGreater(Item_struct *lista,int reg1, int reg2, int reg3);

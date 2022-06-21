@@ -59,7 +59,6 @@ struct function_struct{
 
 int imprimeExpressao(ProgramaMips *p,Expressao *exp, int reg){
     Expressao *aux = exp;
-    
     int auxReg;
     int auxReg2;
     if(aux){
@@ -114,7 +113,7 @@ int imprimeExpressao(ProgramaMips *p,Expressao *exp, int reg){
             case PLUS:
                 auxReg = imprimeExpressao(p,aux->filho_direito,reg+1);
                 auxReg2 = imprimeExpressao(p,aux->filho_esquerdo,auxReg+1);
-                inseriAd(reg,auxReg,auxReg2);
+                inseriAd(p->text,reg,auxReg,auxReg2);
                 break;
             case MINUS:
                 auxReg = imprimeExpressao(p,aux->filho_direito,reg+1);
@@ -138,6 +137,7 @@ int imprimeExpressao(ProgramaMips *p,Expressao *exp, int reg){
     }
     return reg;
 }
+
 void imprimiComandos(ProgramaMips *program,Comandos *auxC,int labelNum){
     int reg=0;
     while (auxC != NULL){
@@ -239,6 +239,7 @@ Comandos *cmd_generico(int tipo, Expressao *exp, Comandos *cmd1, Comandos *cmd2,
     novo->tipo = tipo;
     switch(tipo){
         case IF: 
+            // printf("---%d %d %d\n", exp?exp->tipo:-1,cmd1?cmd1->tipo:-1,cmd2?cmd2->tipo:-1);
             novo->expr_comandos = exp;
             novo->cmd_if = cmd1;
             novo->cmd_else = cmd2;

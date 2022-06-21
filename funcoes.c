@@ -75,11 +75,13 @@ void imprimirPrograma(ProgramaMips *p){
   }
 }
 
-void inseriAd(int destino,int registrador2,int registrador3){
-  // printf("add %d, %d, %d\n", destino, registrador2, registrador3);
-  // char *c = malloc(sizeof(char)*18);
-  // sprintf(c,"add %d, %d, %d\n", destino, registrador2, registrador3);
-  // return c;
+void inseriAd(Item_struct *lista,int destino,int registrador2,int registrador3){
+  Item_struct *i1 = malloc(sizeof(Item_struct));
+  // printf("add $t%d, %d, %d\n", destino, registrador2, registrador3);
+  char *c = malloc(sizeof(char)*18);
+  sprintf(c,"add $t%d, %d, %d\n", destino, registrador2, registrador3);
+  i1->comandoImpressao = c;
+  inseriLista(lista,i1);
 }
 
 void inseriSub(int destino, int registrador2, int registrador3){
@@ -110,7 +112,6 @@ void inseriLabel(Item_struct *lista,char *str,int labelNum){
   sprintf(c,"%s%d:\n",str,labelNum);
   i1->comandoImpressao = c;
   inseriLista(lista,i1);
-  
 }
 
 void inseriLabelSaida(Item_struct *lista,char *str,int labelNum){
