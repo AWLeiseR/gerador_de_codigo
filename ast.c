@@ -133,10 +133,22 @@ void liberaRegT(int i){
                 auxReg2 = imprimeExpressao(p,aux->filho_esquerdo);
                 // auxReg = imprimeExpressao(p,aux->filho_direito,reg+1);
                 // auxReg2 = imprimeExpressao(p,aux->filho_esquerdo,auxReg+1);
+                if(auxReg2.tipo =='s' && auxReg.tipo == 's') {
+                    freee = regTdisponivel();
+                    if(freee != -1){
+                        c.num = freee;                    
+                        c.tipo = 't';
+                    }else{
+                        c.tipo = 's';
+                        c.num = countVar+1;
+                    }
+                }else if(auxReg2.tipo =='t' && auxReg.tipo == 't') { 
+                    c.num = auxReg2.num;                    
                     c.tipo = auxReg2.tipo;
-                    c.num = auxReg2.num;
-                if(auxReg.tipo == 't'){
                     liberaRegT(auxReg.num);
+                }else if(auxReg.tipo == 't'){
+                    c.num = auxReg.num;                    
+                    c.tipo = auxReg.tipo;
                 }
                 imprimirEqual(p->text,auxReg.tipo,auxReg.num,auxReg2.tipo,auxReg2.num,c.tipo,c.num);
                 break;
@@ -228,10 +240,22 @@ void liberaRegT(int i){
                 auxReg2 = imprimeExpressao(p,aux->filho_esquerdo);
                 // auxReg = imprimeExpressao(p,aux->filho_direito,reg+1);
                 // auxReg2 = imprimeExpressao(p,aux->filho_esquerdo,auxReg+1);
-                   c.tipo = auxReg2.tipo;
-                    c.num = auxReg2.num;
-                if(auxReg.tipo == 't'){
+                if(auxReg2.tipo =='s' && auxReg.tipo == 's') {
+                    freee = regTdisponivel();
+                    if(freee != -1){
+                        c.num = freee;                    
+                        c.tipo = 't';
+                    }else{
+                        c.tipo = 's';
+                        c.num = countVar+1;
+                    }
+                }else if(auxReg2.tipo =='t' && auxReg.tipo == 't') { 
+                    c.num = auxReg2.num;                    
+                    c.tipo = auxReg2.tipo;
                     liberaRegT(auxReg.num);
+                }else if(auxReg.tipo == 't'){
+                    c.num = auxReg.num;                    
+                    c.tipo = auxReg.tipo;
                 }
                 imprimiAND(p->text,auxReg.tipo,auxReg.num,auxReg2.tipo,auxReg2.num,c.tipo,c.num);
                 break;
@@ -240,10 +264,22 @@ void liberaRegT(int i){
                 auxReg2 = imprimeExpressao(p,aux->filho_esquerdo);
                 // auxReg = imprimeExpressao(p,aux->filho_direito,reg+1);
                 // auxReg2 = imprimeExpressao(p,aux->filho_esquerdo,auxReg+1);
-                   c.tipo = auxReg2.tipo;
-                    c.num = auxReg2.num;
-                if(auxReg.tipo == 't'){
+                if(auxReg2.tipo =='s' && auxReg.tipo == 's') {
+                    freee = regTdisponivel();
+                    if(freee != -1){
+                        c.num = freee;                    
+                        c.tipo = 't';
+                    }else{
+                        c.tipo = 's';
+                        c.num = countVar+1;
+                    }
+                }else if(auxReg2.tipo =='t' && auxReg.tipo == 't') { 
+                    c.num = auxReg2.num;                    
+                    c.tipo = auxReg2.tipo;
                     liberaRegT(auxReg.num);
+                }else if(auxReg.tipo == 't'){
+                    c.num = auxReg.num;                    
+                    c.tipo = auxReg.tipo;
                 }
                 imprimiOR(p->text,auxReg.tipo,auxReg.num,auxReg2.tipo,auxReg2.num,c.tipo,c.num);
                 break;
