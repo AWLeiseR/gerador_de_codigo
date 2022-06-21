@@ -239,7 +239,6 @@ Comandos *cmd_generico(int tipo, Expressao *exp, Comandos *cmd1, Comandos *cmd2,
     novo->tipo = tipo;
     switch(tipo){
         case IF: 
-            // printf("---%d %d %d\n", exp?exp->tipo:-1,cmd1?cmd1->tipo:-1,cmd2?cmd2->tipo:-1);
             novo->expr_comandos = exp;
             novo->cmd_if = cmd1;
             novo->cmd_else = cmd2;

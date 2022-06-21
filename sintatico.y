@@ -99,6 +99,7 @@
 %type <expr> expressao return_fun
 %type <expr> expressao_primaria
 %type <comandos> comandos
+%type <comandos> comandos_if
 
 %type <comandos> if
 %type <comandos> printf
@@ -133,6 +134,12 @@ comandos: {$$ = NULL;}
     | scanf ponto_virgula comandos {$$ = setProxGenerico($1,$3 );}
 ;
 
+comandos_if: {$$ = NULL;}
+    | if {$$ = $1;}
+    | printf {$$ = $1;}
+    | scanf {$$ = $1;}
+;
+
 scanf: SCANF L_PARENTESE expressao_primaria COMMA BITWISE_AND L_PARENTESE expressao_primaria R_PARENTESE R_PARENTESE ponto_virgula {$$ = cmd_generico(SCANF, $3,NULL, NULL,$7);}
 ;
 
@@ -140,8 +147,8 @@ printf: PRINTF L_PARENTESE expressao_primaria COMMA expressao R_PARENTESE {$$ = 
     | PRINTF L_PARENTESE expressao_primaria R_PARENTESE {$$ = cmd_generico(PRINTF, $3, NULL, NULL,NULL);}
 ;
 
-if: IF L_PARENTESE expressao COMMA comandos COMMA comandos R_PARENTESE {$$ = cmd_generico(IF, $3, $5, $7,NULL);}
-    | IF L_PARENTESE expressao COMMA comandos R_PARENTESE {$$ = cmd_generico(IF, $3, $5, NULL, NULL);}
+if: IF L_PARENTESE expressao COMMA comandos_if COMMA comandos_if R_PARENTESE {$$ = cmd_generico(IF, $3, $5, $7,NULL);}
+    | IF L_PARENTESE expressao COMMA comandos_if R_PARENTESE {$$ = cmd_generico(IF, $3, $5, NULL, NULL);}
 ;
 
 ponto_virgula: { }
