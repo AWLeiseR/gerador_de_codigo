@@ -78,10 +78,10 @@ int acharVar(char *id){
 char *imprimeExpressao(ProgramaMips *p,Expressao *exp){
     Expressao *aux = exp;
     int reg = countReg;
-    char *auxReg = malloc(sizeof(char)*15);
-    char *auxReg2 = malloc(sizeof(char)*15);
-    char *c;
-    char *regString = malloc(sizeof(char)*15);;
+    char *auxReg = malloc(sizeof(char)*5);
+    char *auxReg2 = malloc(sizeof(char)*5);
+    char *c = malloc(sizeof(char)*5);;
+    char *regString = malloc(sizeof(char)*5);
     if(aux){
         //ver o q fazer com as strings e os interios
         switch (aux->tipo){
@@ -184,7 +184,7 @@ char *imprimeExpressao(ProgramaMips *p,Expressao *exp){
 }
 
 void imprimiComandos(ProgramaMips *program,Comandos *auxC,int labelNum){
-    char *reg = malloc(sizeof(char)*10);
+    char *reg = malloc(sizeof(char)*5);
     while (auxC != NULL){
         switch (auxC->tipo){
             case PRINTF:
@@ -306,7 +306,6 @@ Function_struct *novaFunction(Expressao *nome, int tipo_retorno, Expressao *exp_
     novo->nome = nome;
     novo->tipo_retorno = tipo_retorno;
     novo->parametros = parametros;
-
     novo->variaveis = variaveis;
     novo->exp_retorno = exp_retorno;
     novo->function_comandos = function_comandos;
