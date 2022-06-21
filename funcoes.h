@@ -16,12 +16,12 @@
     ProgramaMips *iniciaProgramaStruct();
     void imprimirPrograma(ProgramaMips *p);
     void imprimiAND(Item_struct *lista, char *reg1, char *reg2, char *reg3);
-    void imprimirEqual(Item_struct *lista, char *reg1, char *reg2, char *reg3);
+    void imprimirEqual(Item_struct *lista,char *reg1, char *reg2, char *destino);
     void imprimirNotEqual(Item_struct *lista,int reg1, int reg2, int reg3);
     void imprimirGreater(Item_struct *lista,int reg1, int reg2, int reg3);
-    void imprimirLess(Item_struct *lista, char *reg1, char *reg2, char *reg3);
+    void imprimirLess(Item_struct *lista, char *reg1, char *reg2, char *destino);
     void inseriAd(Item_struct *lista, char *destino,char *registrador2,char *registrador3);
-    void imprimiOR(Item_struct *lista, char *reg1, char *reg2, char *reg3);
+    void imprimiOR(Item_struct *lista, char *reg1, char *reg2, char *destino);
     void inseriSub(int destino, int registrador2, int registrador3);
     void imprimirGreater(Item_struct *lista,int reg1, int reg2, int reg3);
     void imprimirLessEqual(Item_struct *lista,int reg1, int reg2, int reg3);
